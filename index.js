@@ -29,9 +29,9 @@ app.post('/login',function(req,res){
     const batch = [
         { method: 'getnewaddress', params: [accName] }
     ]
-      client.command(batch).then(([address, error]) =>res.send(address,accName), console.log(accName) );
+      client.command(batch).then(([address, error]) =>res.send(address), console.log(address) );
         
-    console.log("User name = "+accName+", password is ");
+    console.log("accName= "+accName+"");
        res.end("yes");
   });
 
