@@ -12,7 +12,7 @@ const client = new Client({
     password: 'bitc0inRPCpass',
     port: 8332,
 });
-client.headers("content-type", "text/plain");
+ 
 //   const client = new Client({ headers: true });
 //  console.log( client.getInfo())
 app.post('/getInfo', function (req, res) {
@@ -27,7 +27,6 @@ app.post('/getInfo', function (req, res) {
     ]
    //  client.command(batch).then(([firstAddress, secondAddress]) => res.send(firstAddress, secondAddress));
    client.command(batch).then(([address, error]) => {
-
     if(error){
     console.log(error+"error");
     res.send(error)
