@@ -24,12 +24,14 @@ console.log('getbalance');
  }
 
  app.post('/GetNewAddress',function(req,res){
-    var accountName = req.body.accountName;
-    const batch = [
-        { method: 'getnewaddress', params: [accountName] }
-      ]
+   // var accountName = req.query.accountName;
+    console.log(req.query.accountName);
+    console.log(req.body.accountName);
+    // const batch = [
+    //     { method: 'getnewaddress', params: [accountName] }
+    //   ]
         
-       client.command(batch).then(([address, error]) =>res.send(address), console.log(accountName) );
+    //    client.command(batch).then(([address, error]) =>res.send(address), console.log(accountName) );
 
  });
 
