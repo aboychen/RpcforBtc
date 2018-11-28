@@ -44,7 +44,7 @@ app.post('/getInfo', function (req, res) {
 
   //get new address
   app.post('/test', (req, res) => {
-      client.getnewaddress((Address, err) => {
+      client.getNewAddress((Address, err) => {
           var account_name = req.body.account_name;
 
           return res.json({
