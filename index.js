@@ -29,7 +29,7 @@ app.post('/getInfo', function (req, res) {
    client.command(batch).then(([ error,address]) => {
     if(error){
     console.log(error+"error");
-    res.send(error)
+    res.json(error)
     }
     else{
         console.log(address);
@@ -42,7 +42,7 @@ app.post('/getInfo', function (req, res) {
    });
 
 
-       res.end("yes");
+       
   });
 
   //get new address
