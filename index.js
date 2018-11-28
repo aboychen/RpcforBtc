@@ -41,6 +41,13 @@ console.log('getbalance');
         
        client.command(batch).then(([address, error]) =>res.send(address) );
  });
-
+app.post('/getaddressesbyaccount',function(req,res){
+    var accountNo=req.query.accountNo;
+    const batch = [
+        { method: 'getaddressesbyaccount', params: [accountNo] }
+      ]
+        
+       client.command(batch).then(([address, error]) =>res.send(address) );
+});
  app.listen(3000,()=> console.log("Server is running at http://localhost:3000"));
 
