@@ -33,7 +33,10 @@ app.post('/getInfo', function (req, res) {
     }
     else{
         console.log(address);
-        res.send(address)
+        res.json({
+            account:address,
+            name:accName
+        })
     }
 
    });
