@@ -106,7 +106,7 @@ app.post('/listtransactions', function (req, res) {
                 console.log(address);
                 res.json({
                     balance:address,
-                    accNo:accountNo
+                    accNo:account
                 })
             }
 
