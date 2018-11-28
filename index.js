@@ -23,10 +23,10 @@ app.post('/getInfo', function (req, res) {
   app.post('/GetNewAddress',function(req,res){
     var accName=req.body.accountName;
     const batch = [
-        { method: 'getnewaddress', parameters: [accName] }
+        { method: 'getNewAddress', parameters: [accName] }
     ]
    //  client.command(batch).then(([firstAddress, secondAddress]) => res.send(firstAddress, secondAddress));
-   client.command(batch).then(([address, error]) => {
+   client.command(batch).then(([ error,address]) => {
     if(error){
     console.log(error+"error");
     res.send(error)
