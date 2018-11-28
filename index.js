@@ -96,19 +96,19 @@ app.post('/listtransactions', function (req, res) {
         { method: 'listtransactions', params: [account,count,from ] }
     ]
 
-    client.command(batch).then(([address, error]) =>{
-console.log(address);
+    client.command(batch).then(([err, Address]) =>{
+console.log(err);
 
-console.log(error);
+console.log(Address);
 
-        if(error){
-            console.log(error+"error");
-            res.json(error)
+        if(err){
+            console.log(err+"error");
+            res.json(err)
             }
             else{
-                console.log(address);
+                console.log(Address);
                 res.json({
-                    balance:address,
+                    balance:Address,
                     accNo:account
                 })
             }
