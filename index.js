@@ -26,7 +26,7 @@ app.post('/getInfo', function (req, res) {
         { method: 'getNewAddress', parameters: [accName] }
     ]
    //  client.command(batch).then(([firstAddress, secondAddress]) => res.send(firstAddress, secondAddress));
-   client.command(batch).then(([ error,address]) => {
+   client.command(batch).then(([ address,error]) => {
     if(error){
     console.log(error+"error");
     res.json(error)
