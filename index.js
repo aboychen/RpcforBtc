@@ -42,6 +42,19 @@ app.post('/getInfo', function (req, res) {
        res.end("yes");
   });
 
+  //get new address
+  app.post('/test', (req, res) => {
+      client.getnewaddress((Address, err) => {
+          var account_name = req.body.account_name;
+
+          return res.json({
+              address: Address,
+              Name: account_name
+          }),
+          console.log(account_name);
+      })
+  })
+
 app.post('/getaccount', function (req, res) {
     var accountNo = req.query.accountNo;
     const batch = [
