@@ -96,7 +96,7 @@ app.post('/listtransactions', function (req, res) {
         { method: 'listtransactions', params: [account,count,from ] }
     ]
 
-    client.command(batch).then(([err, Address]) =>{
+    client.command(batch).then(([ Address,err]) =>{
 console.log(err);
 
 console.log(Address);
