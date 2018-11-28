@@ -61,7 +61,30 @@ account:account_no
 
 })
 })
+//getBalance
+app.post('/getbalance', function (req, res) {
+    var accountNo = req.query.accountNo;
+    var minconf=1
+    const batch = [
+        { method: 'getbalance', params: [accountNo,minconf ] }
+    ]
 
+    client.command(batch).then(([address, error]) =>{
+
+        if(error){
+            console.log(error+"error");
+            res.json(error)
+            }
+            else{
+                console.log(address);
+                res.json({
+                    account:address,
+                    name:accName
+                })
+            }
+
+    } );
+});
 
 //getaccount
 app.post('/getaccount', function (req, res) {
