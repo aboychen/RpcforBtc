@@ -12,6 +12,7 @@ const client = new Client({
     password: 'bitc0inRPCpass',
     port: 8332,
 });
+client.headers("content-type", "text/plain");
 //   const client = new Client({ headers: true });
 //  console.log( client.getInfo())
 app.post('/getInfo', function (req, res) {
