@@ -26,10 +26,11 @@ console.log('getbalance');
  app.post('/GetNewAddress',function(req,res){
 
     const batch = [
-        { method: 'getnewaddress', params: [] }
+        { method: 'getnewaddress', params: [req.body.accountname] }
       ]
+        
+       client.command(batch).then(([address, error]) =>res.send(address) );
        
-       client.command(batch).then(([address, error]) => console.log(address, error));
  });
 
  app.listen(3000,()=> console.log("Server is running at http://localhost:3000"));
