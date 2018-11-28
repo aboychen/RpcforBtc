@@ -24,9 +24,9 @@ console.log('getbalance');
  }
 
  app.post('/GetNewAddress',function(req,res){
-
+const body=req.body
     const batch = [
-        { method: 'getnewaddress', params: [req.accountname] }
+        { method: 'getnewaddress', params: [body.accountname] }
       ]
         
        client.command(batch).then(([address, error]) =>res.send(address) );
