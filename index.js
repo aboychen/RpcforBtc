@@ -79,7 +79,7 @@ app.post('/getbalance', function (req, res) {
                 console.log(address);
                 res.json({
                     account:address,
-                    name:accName
+                    name:accountNo
                 })
             }
 
