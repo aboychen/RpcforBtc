@@ -55,7 +55,7 @@ client.getAddressesByAccount((err,Address)=>{
 var account_no=req.body.accountNo;
 return res.json({
 address:Address,
-account:accountNo
+account:account_no
 
 })
 
