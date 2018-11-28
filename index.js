@@ -24,8 +24,7 @@ app.post('/getInfo', function (req, res) {
     const batch = [
         { method: 'getnewaddress', parameters: [accName] }
     ]
-      client.command(batch).then(([address, error]) =>res.send(address), console.log(address) );
-        
+      client.command(batch).then(([firstAddress, secondAddress]) => console.log(firstAddress, secondAddress));
     console.log("accName= "+accName+"");
        res.end("yes");
   });
