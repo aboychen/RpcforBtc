@@ -16,7 +16,7 @@ app.post('/getInfo',function(req,res){
  client.getInfo();
     res.send(client.getInfo());
   })
-app/post('/getbalance')
+app.post('/getbalance')
 const getbalance=(req,res)=>{
 console.log('getbalance');
  console.log( client.getbalance());
