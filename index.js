@@ -85,6 +85,36 @@ app.post('/getbalance', function (req, res) {
 
     } );
 });
+//listtransactions
+
+app.post('/listtransactions', function (req, res) {
+    var account = req.query.accountname;
+    var minconf=1
+    var count=10;
+    var from =0;
+    const batch = [
+        { method: 'listtransactions', params: [account,count,from ] }
+    ]
+
+    client.command(batch).then(([address, error]) =>{
+
+        if(error){
+            console.log(error+"error");
+            res.json(error)
+            }
+            else{
+                console.log(address);
+                res.json({
+                    balance:address,
+                    accNo:accountNo
+                })
+            }
+
+    } );
+});
+
+
+
 
 //getaccount
 app.post('/getaccount', function (req, res) {
