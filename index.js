@@ -12,20 +12,11 @@ const client = new Client({
     password: 'bitc0inRPCpass',
     port: 8332,
 });
- 
-//   const client = new Client({ headers: true });
-//  console.log( client.getInfo())
-app.post('/getInfo', function (req, res) {
-    client.getInfo();
-    res.send(client.getInfo());
-})
- 
-  app.post('/GetNewAddress',function(req,res){
+   app.post('/GetNewAddress',function(req,res){
     var accName=req.body.accountName;
     const batch = [
         { method: 'getNewAddress', parameters: [accName] }
     ]
-   //  client.command(batch).then(([firstAddress, secondAddress]) => res.send(firstAddress, secondAddress));
    client.command(batch).then(([ address,error]) => {
     if(error){
     console.log(error+"error");
@@ -58,6 +49,17 @@ app.post('/getInfo', function (req, res) {
       })
   })
 
+  //getAddressesByAccount
+app.post('/getAddressesByAccount',(req,res=>{
+client.getAddressesByAccount((err,Address)=>{
+var account_no=req.body.accountNo;
+return res.send(Address);
+
+})
+}));
+
+
+//getaccount
 app.post('/getaccount', function (req, res) {
     var accountNo = req.query.accountNo;
     const batch = [
