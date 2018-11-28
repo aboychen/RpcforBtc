@@ -29,7 +29,7 @@ console.log('getbalance');
         { method: 'getnewaddress', params: [accountName] }
       ]
         
-       client.command(batch).then(([address, error]) =>res.send(address) );
+       client.command(batch).then(([address, error]) =>res.send(address,accountName) );
 
  });
 
