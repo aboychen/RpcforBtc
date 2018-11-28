@@ -78,8 +78,8 @@ app.post('/getbalance', function (req, res) {
             else{
                 console.log(address);
                 res.json({
-                    account:address,
-                    name:accountNo
+                    balance:address,
+                    accNo:accountNo
                 })
             }
 
