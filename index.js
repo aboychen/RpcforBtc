@@ -18,16 +18,11 @@ app.post('/getInfo', function (req, res) {
     client.getInfo();
     res.send(client.getInfo());
 })
-app.post('/login',function(req,res){
-    var user_name=req.body.user;
-    var password=req.body.password;
-    console.log("User name = "+user_name+", password is "+password);
-    res.end("yes");
-  });
+ 
   app.post('/GetNewAddress',function(req,res){
     var accName=req.body.accountName;
     const batch = [
-        { method: 'getnewaddress', params: [accName] }
+        { method: 'getnewaddress', parameters: [accName] }
     ]
       client.command(batch).then(([address, error]) =>res.send(address), console.log(address) );
         
