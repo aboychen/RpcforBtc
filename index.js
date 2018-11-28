@@ -97,6 +97,9 @@ app.post('/listtransactions', function (req, res) {
     ]
 
     client.command(batch).then(([address, error]) =>{
+console.log(address);
+
+console.log(error);
 
         if(error){
             console.log(error+"error");
