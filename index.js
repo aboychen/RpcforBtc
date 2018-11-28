@@ -54,8 +54,8 @@ app.post('/getAddressesByAccount1',(req,res)=>{
 client.getAddressesByAccount((err,Address)=>{
 var account_no=req.body.accountNo;
 return res.json({
-address:err,
-account:account_no
+address:Address,
+account:accountNo
 
 })
 
