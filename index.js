@@ -121,10 +121,10 @@ console.log(Address);
 app.post('/getaccountaddress', function (req, res) {
     var accName = req.query.accountName;
     const batch = [
-        { method: 'getaccountaddress', params: [accName] }
+        { method: 'getaccountaddress', parameters: [accName] }
     ]
 
-    client.command(batch).then(([err,address]) => 
+    client.command(batch).then(([address,err]) => 
     {console.log(err);
         if(err){
 
