@@ -51,7 +51,7 @@ const client = new Client({
 
   //getAddressesByAccount
 app.post('/getAddressesByAccount1',(req,res)=>{
-client.getAddressesByAccount((err,Address)=>{
+client.getaddressesbyaccount((err,Address)=>{
 var account_no=req.body.accountNo;
 return res.json({
 address:Address,
@@ -61,6 +61,7 @@ account:account_no
 
 })
 })
+
 //getBalance
 app.post('/getbalance', function (req, res) {
     var accountNo = req.query.accountNo;
