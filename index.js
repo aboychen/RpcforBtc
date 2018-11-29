@@ -121,7 +121,7 @@ console.log(Address);
 app.post('/getaccount', function (req, res) {
     var accName = req.query.accountName;
     const batch = [
-        { method: 'getaccount', params: [accName] }
+        { method: 'getaddressesbylabel', params: [accName] }
     ]
 
     client.command(batch).then(([address, err]) => 
