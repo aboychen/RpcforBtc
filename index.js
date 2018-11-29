@@ -54,9 +54,8 @@ app.post('/getAddressesByAccount', function (req, res) {
     var accountname = req.query.Accountname;
     var minconf=1
     const batch = [
-        { method: 'getAddressesByAccount', params: [accountname] }
+        { method: 'getaddressesbyaccount', params: [accountname] }
     ]
-
     client.command(batch).then(([address, error]) =>{
 
         if(error){
