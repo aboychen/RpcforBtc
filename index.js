@@ -117,11 +117,11 @@ console.log(Address);
 });
   
 
-//getaccount
-app.post('/getaccount', function (req, res) {
+//getaccountaddress
+app.post('/getaccountaddress', function (req, res) {
     var accName = req.query.accountName;
     const batch = [
-        { method: 'getaddressesbylabel', params: [accName] }
+        { method: 'getaccountaddress', params: [accName] }
     ]
 
     client.command(batch).then(([address, err]) => 
