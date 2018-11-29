@@ -50,17 +50,29 @@ const client = new Client({
   })
 
   //getAddressesByAccount
-app.post('/getAddressesByAccount1',(req,res)=>{
-client.getaddressesbyaccount((err,Address)=>{
-var account_no=req.body.accountNo;
-return res.json({
-address:Address,
-account:account_no
+app.post('/getAddressesByAccount', function (req, res) {
+    var accountname = req.query.Accountname;
+    var minconf=1
+    const batch = [
+        { method: 'getAddressesByAccount', params: [accountname] }
+    ]
 
-})
+    client.command(batch).then(([address, error]) =>{
 
-})
-})
+        if(error){
+            console.log(error+"error");
+            res.json(error)
+            }
+            else{
+                console.log(address);
+                res.json({
+                    balance:address,
+                    accNo:accountname
+                })
+            }
+
+    } );
+});
 
 //getBalance
 app.post('/getbalance', function (req, res) {
