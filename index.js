@@ -124,7 +124,7 @@ app.post('/getaccountaddress', function (req, res) {
         { method: 'getaccountaddress', params: [accName] }
     ]
 
-    client.command(batch).then(([address, err]) => 
+    client.command(batch).then(([err,address]) => 
     {console.log(err);
         if(err){
 
