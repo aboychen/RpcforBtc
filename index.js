@@ -115,18 +115,28 @@ console.log(Address);
 
     } );
 });
-
-
-
+  
 
 //getaccount
 app.post('/getaccount', function (req, res) {
-    var accountNo = req.query.accountNo;
+    var accName = req.query.accountName;
     const batch = [
-        { method: 'getaccount', params: [accountNo] }
+        { method: 'getaccount', params: [accName] }
     ]
 
-    client.command(batch).then(([address, error]) => res.send(address));
+    client.command(batch).then(([address, err]) => 
+    {console.log(err);
+        if(err){
+
+            console.log(err);
+            return res.json({
+                error:err
+            });
+        }else{
+        console.log(address);
+        return res.json(address);
+        }
+    });
 });
 app.post('/getaddressesbyaccount', function (req, res) {
     var accountNo = req.query.accountNo;
